@@ -9,13 +9,11 @@
     <item
         android:id="@+id/logout1"
         android:icon="@drawable/baseline_logout_24"
-        android:onClick="doThis1"
         android:title="Registrar Usuarios">
     </item>
     <item
         android:id="@+id/logout"
         android:icon="@drawable/baseline_logout_24"
-        android:onClick="doThis"
         android:title="Cerrar sesión">
     </item>
 
