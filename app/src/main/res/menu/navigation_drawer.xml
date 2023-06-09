@@ -10,7 +10,7 @@
         android:id="@+id/logout1"
         android:icon="@drawable/baseline_logout_24"
         android:onClick="doThis1"
-        android:title="Cerrar sesión">
+        android:title="Registrar Usuarios">
     </item>
     <item
         android:id="@+id/logout"
