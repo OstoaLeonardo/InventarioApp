@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -25,9 +26,9 @@ import java.util.Map;
 
 public class Register extends AppCompatActivity {
 
-    TextInputEditText txtName, txtAge, txtMail, txtPass, txtCPass;
+    EditText txtName, txtAge, txtMail, txtPass, txtCPass;
 
-    @SuppressLint({"WrongViewCast", "MissingInflatedId"})
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

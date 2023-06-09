@@ -17,8 +17,8 @@
             android:layout_marginTop="11dp"
             android:layout_marginEnd="60dp"
             android:ems="10"
-            android:hint="Telefono"
-            android:inputType="text|phone"
+            android:hint="Correo"
+            android:inputType="textEmailAddress"
             android:textColor="#000"
             android:textColorHint="#5B5B5B"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
             app:layout_constraintEnd_toStartOf="@+id/inContrasena3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgArroba4"
-            app:srcCompat="@drawable/telephone" />
+            app:srcCompat="@drawable/arroba" />
 
         <EditText
             android:id="@+id/inDireccion"
@@ -50,7 +50,7 @@
             android:layout_marginEnd="61dp"
             android:ems="10"
             android:hint="Direccion"
-            android:inputType="text"
+            android:inputType="number"
             android:textColor="#000"
             android:textColorHint="#5B5B5B"
             app:layout_constraintEnd_toEndOf="parent"
@@ -79,8 +79,8 @@
             android:layout_marginTop="14dp"
             android:layout_marginEnd="60dp"
             android:ems="10"
-            android:hint="Nombre"
-            android:inputType="textPersonName"
+            android:hint="Repetir contraseña"
+            android:inputType="textPassword"
             android:textColor="#000"
             android:textColorHint="#5B5B5B"
             app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +99,7 @@
             app:layout_constraintEnd_toStartOf="@+id/inCorreo4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgPsw2"
-            app:srcCompat="@drawable/user" />
+            app:srcCompat="@drawable/lock" />
 
         <Button
             android:id="@+id/btnInicioSesion3"
@@ -129,7 +129,7 @@
             android:layout_marginEnd="60dp"
             android:ems="10"
             android:hint="Contraseña"
-            android:inputType="textVisiblePassword"
+            android:inputType="textPassword"
             android:textColor="#000"
             android:textColorHint="#5B5B5B"
             app:layout_constraintEnd_toEndOf="parent"
@@ -144,7 +144,7 @@
             android:layout_marginTop="17dp"
             android:layout_marginEnd="60dp"
             android:ems="10"
-            android:hint="Correo electronico"
+            android:hint="Nombre"
             android:inputType="textWebEmailAddress"
             android:textColor="#000000"
             android:textColorHint="#5B5B5B"
@@ -162,7 +162,7 @@
             app:layout_constraintEnd_toStartOf="@+id/inCorreo3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lblLain6"
-            app:srcCompat="@drawable/arroba" />
+            app:srcCompat="@drawable/user" />
 
         <ImageView
             android:id="@+id/imgPsw2"
