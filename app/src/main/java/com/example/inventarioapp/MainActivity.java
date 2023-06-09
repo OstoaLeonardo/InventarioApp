@@ -1,5 +1,8 @@
 package com.example.inventarioapp;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -36,4 +39,12 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
     }
+    public void logout() {
+
+        Intent intent = new Intent(this, Login.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+       // Cierra la actividad actual para evitar que el usuario vuelva atrás
+    }
+
 }
