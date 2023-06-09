@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setContentView(R.layout.activity_login);
+
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
         Drawer drawerManager = new Drawer();
