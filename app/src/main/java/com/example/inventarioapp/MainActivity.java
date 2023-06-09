@@ -31,8 +31,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_login);
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+
         DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
         Drawer drawerManager = new Drawer();
         drawerManager.setupDrawer(this, drawerLayout);
@@ -91,19 +92,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void logout() {
 
-        Intent intent = new Intent(this, Login.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-       // Cierra la actividad actual para evitar que el usuario vuelva atrás
     }
     public void doThis(MenuItem item){
-        Intent intent = new Intent(this, Login.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Intent intent = new Intent(MainActivity.this, Login.class);
         startActivity(intent);
+
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putBoolean(KEY_FIRST_RUN, true);
         editor.apply();
+    }
+    public void doThis1(MenuItem item){
+        Intent intent = new Intent(MainActivity.this, Register.class);
+        startActivity(intent);
+
+       ;
     }
 
 }

@@ -1,15 +1,14 @@
 package com.example.inventarioapp;
 
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -19,52 +18,54 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Login extends AppCompatActivity {
-    private static final String PREFS_NAME = "MyPrefsFile";
-    private static final String KEY_FIRST_RUN = "firstRun";
+public class Register extends AppCompatActivity {
 
-    EditText txtMail, txtPass;
+    TextInputEditText txtName, txtAge, txtMail, txtPass, txtCPass;
+
+    @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        txtMail = findViewById(R.id.inCorreo);
-        txtPass = findViewById(R.id.inContrasena);
+        setContentView(R.layout.activity_register);
+
+        txtName = findViewById(R.id.tiName);
+        txtAge = findViewById(R.id.inContrasena3);
+        txtMail = findViewById(R.id.inCorreo3);
+        txtPass = findViewById(R.id.inContrasena2);
+        txtCPass = findViewById(R.id.inContrasena2);
     }
 
-    private void validarUsuario(String URL){
+    private void registrarUsuario(String URL){
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if(!response.isEmpty()){
-                    Intent intent = new Intent(Login.this, MainActivity.class);
+                    Intent intent = new Intent(Register.this, MainActivity.class);
                     startActivity(intent);
                     finish();
-
-                    SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-                    SharedPreferences.Editor editor = settings.edit();
-                    editor.putBoolean(KEY_FIRST_RUN, false);
-                    editor.apply();
-
                 }
-                else
-                    Toast.makeText(Login.this, "Usuario invalido", Toast.LENGTH_SHORT).show();
+                else{
+                    Toast.makeText(Register.this, "Usuario creado correctamente", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Login.this, error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, error.toString(), Toast.LENGTH_SHORT).show();
             }
         }){
             @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
+                params.put("nombre", txtName.getText().toString());
+                params.put("edad", txtAge.getText().toString());
                 params.put("usuario", txtMail.getText().toString());
                 params.put("password", txtPass.getText().toString());
                 return params;
@@ -75,7 +76,15 @@ public class Login extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    public void Login(View view){
+    public void RegisterUser(View view){
+        if(txtName.getText().toString().isEmpty()) {
+            mostrarError("No se ha ingresado el usuario");
+            return;
+        }
+        if(txtAge.getText().toString().isEmpty()) {
+            mostrarError("No se ha ingresado la edad");
+            return;
+        }
         if(txtMail.getText().toString().isEmpty()) {
             mostrarError("No se ha ingresado el correo");
             return;
@@ -84,7 +93,16 @@ public class Login extends AppCompatActivity {
             mostrarError("No se ha ingresado la contraseña");
             return;
         }
-        validarUsuario("https://daduappmovil.000webhostapp.com/validar_usuario.php");
+        if(txtCPass.getText().toString().isEmpty()) {
+            mostrarError("No se ha ingresado la confirmación de la contraseña");
+            return;
+        }
+        if(!txtPass.getText().toString().equals(txtCPass.getText().toString())) {
+            mostrarError("Las contraseñas no coinsiden");
+            return;
+        }
+
+        registrarUsuario("https://daduappmovil.000webhostapp.com/registrar_usuario.php");
     }
 
     private void mostrarError(String msg){
@@ -93,13 +111,8 @@ public class Login extends AppCompatActivity {
         snackbar.show();
     }
 
-    public void Register(View view){
-       // Intent intent = new Intent(Login.this, Register.class);
-        //startActivity(intent);
-    }
-
-    public void Recovery(View view){
-        Intent intent = new Intent(Login.this, Password.class);
+    public void backLogin(View view){
+        Intent intent = new Intent(Register.this, MainActivity.class);
         startActivity(intent);
     }
 }
