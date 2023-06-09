@@ -4,20 +4,28 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.material.navigation.NavigationView;
+
 public class MainActivity extends AppCompatActivity {
+    private static final String PREFS_NAME = "MyPrefsFile";
+    private static final String KEY_FIRST_RUN = "firstRun";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        boolean firstRun = settings.getBoolean(KEY_FIRST_RUN, true);
         DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
         Drawer drawerManager = new Drawer();
         drawerManager.setupDrawer(this, drawerLayout);
@@ -39,12 +47,24 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
     }
-    public void logout() {
+    public void logout111() {
 
         Intent intent = new Intent(this, Login.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        finish();
        // Cierra la actividad actual para evitar que el usuario vuelva atrás
     }
+    public void doThis(MenuItem item){
+        Intent intent = new Intent(MainActivity.this, Login.class);
+        startActivity(intent);
+        finish();
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putBoolean(KEY_FIRST_RUN, true);
+        editor.apply();
+    }
+
+
 
 }

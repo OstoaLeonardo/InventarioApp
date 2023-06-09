@@ -29,18 +29,7 @@ public class Drawer {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (drawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-
-        if (item.getItemId() == R.id.logout) {
-            // Realiza las acciones para cerrar sesión
-            activity.logout();
-            return true;
-        }
-
-
-        return true;
+     return drawerToggle.onOptionsItemSelected(item);
     }
 
 
