@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Password">
+    tools:context=".RecoveryPass">
 
     <Button
-        android:id="@+id/btnInicioSesion2"
+        android:id="@+id/btnRecovery"
         android:layout_width="298dp"
         android:layout_height="59dp"
         android:layout_marginStart="52dp"
         android:layout_marginEnd="61dp"
-        android:layout_marginBottom="82dp"
+        android:layout_marginBottom="156dp"
         android:background="@drawable/border_radius"
-        android:onClick="sendMessage"
         android:text="Aceptar"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
@@ -22,10 +21,11 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/inCorreo2"
+        android:id="@+id/tiMail"
         android:layout_width="268dp"
         android:layout_height="67dp"
         android:layout_marginStart="10dp"
@@ -36,7 +36,7 @@
         android:inputType="textWebEmailAddress"
         android:textColor="#000"
         android:textColorHint="#5B5B5B"
-        app:layout_constraintBottom_toTopOf="@+id/btnInicioSesion2"
+        app:layout_constraintBottom_toTopOf="@+id/btnRecovery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgArroba2" />
 
@@ -47,8 +47,8 @@
         android:layout_marginStart="54dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="106dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnInicioSesion2"
-        app:layout_constraintEnd_toStartOf="@+id/inCorreo2"
+        app:layout_constraintBottom_toTopOf="@+id/btnRecovery"
+        app:layout_constraintEnd_toStartOf="@+id/tiMail"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/arroba" />
 
@@ -102,12 +102,11 @@
         android:id="@+id/btnCancelar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnInicioSesion2"
         android:background="@color/white"
         android:text="Cancelar"
 
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-60dp"
-        tools:layout_editor_absoluteY="667dp" />
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="596dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Password">
+    tools:context=".RecoveryPass">
 
     <Button
-        android:id="@+id/btnInicioSesion2"
+        android:id="@+id/btnRecovery"
         android:layout_width="298dp"
         android:layout_height="59dp"
         android:layout_marginStart="52dp"
         android:layout_marginEnd="61dp"
         android:layout_marginBottom="82dp"
         android:background="@drawable/border_radius"
-        android:onClick="sendMessage"
         android:text="Aceptar"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
@@ -25,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/txtCode"
+        android:id="@+id/tiCode"
         android:layout_width="268dp"
         android:layout_height="67dp"
         android:layout_marginEnd="59dp"
@@ -35,7 +34,7 @@
         android:inputType="textWebEmailAddress"
         android:textColor="#000"
         android:textColorHint="#5B5B5B"
-        app:layout_constraintBottom_toTopOf="@+id/btnInicioSesion2"
+        app:layout_constraintBottom_toTopOf="@+id/btnRecovery"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
@@ -69,7 +68,8 @@
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="355dp" />
+        tools:layout_editor_absoluteY="355dp"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView"

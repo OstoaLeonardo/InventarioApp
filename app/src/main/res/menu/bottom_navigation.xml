@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/inventario"
@@ -11,7 +12,7 @@
         android:title="Agregar" />
     <item
         android:id="@+id/quitar"
-        android:icon="@drawable/remove_from_cart"
+        app:lottie_rawRes="@raw/aad"
         android:title="Quitar" />
     <item
         android:id="@+id/nuevoProducto"

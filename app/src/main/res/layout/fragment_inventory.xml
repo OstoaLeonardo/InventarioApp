@@ -68,6 +68,14 @@
                 android:layout_height="wrap_content"
                 android:text="Producto 2: 100 pz"
                 tools:ignore="UnknownIdInLayout"/>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation_view"
+                android:layout_width="match_parent"
+                android:layout_height="528dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/aad" />
         </LinearLayout>
 
 
